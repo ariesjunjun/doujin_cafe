@@ -1,6 +1,7 @@
-import dynamic from "next/dynamic";
+// app/search/page.tsx
+"use client";
 
-const SearchClient = dynamic(() => import("./SearchClient"), { ssr: false });
+import SearchClient from "./SearchClient";
 
 export default function SearchPage() {
   return <SearchClient />;

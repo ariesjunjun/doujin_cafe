@@ -1,11 +1,7 @@
 // threads/confirm/page.tsx
+"use client";
 
-import dynamic from "next/dynamic";
-
-// クライアントコンポーネントを動的importしてSSR無効化
-const ThreadConfirmClient = dynamic(() => import("./ThreadConfirmClient"), {
-  ssr: false,
-});
+import ThreadConfirmClient from "./ThreadConfirmClient";
 
 export default function ThreadConfirmPage() {
   return <ThreadConfirmClient />;

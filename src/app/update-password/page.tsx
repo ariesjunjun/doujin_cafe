@@ -1,8 +1,7 @@
-import dynamic from "next/dynamic";
+// app/update-password/page.tsx
+"use client";
 
-const UpdatePasswordClient = dynamic(() => import("./UpdatePasswordClient"), {
-  ssr: false,
-});
+import UpdatePasswordClient from "./UpdatePasswordClient";
 
 export default function UpdatePasswordPage() {
   return <UpdatePasswordClient />;

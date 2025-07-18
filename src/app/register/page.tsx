@@ -1,7 +1,7 @@
 // app/register/page.tsx
-import dynamic from "next/dynamic";
+"use client";
 
-const RegisterClient = dynamic(() => import("./RegisterClient"), { ssr: false });
+import RegisterClient from "./RegisterClient";
 
 export default function RegisterPage() {
   return <RegisterClient />;

@@ -1,11 +1,7 @@
 // threads/new/page.tsx
+"use client";
 
-import dynamic from "next/dynamic";
-
-// クライアントコンポーネントを動的import（SSRなし）
-const NewThreadClient = dynamic(() => import("./NewThreadClient"), {
-  ssr: false,
-});
+import NewThreadClient from "./NewThreadClient";
 
 export default function NewThreadPage() {
   return <NewThreadClient />;

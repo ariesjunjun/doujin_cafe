@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic";
+// app/rooms/[roomId]/page.tsx
+"use client";
 
-// クライアントコンポーネントを動的import（SSR無効化）
-const RoomClient = dynamic(() => import("./RoomClient"), { ssr: false });
+import RoomClient from "./RoomClient";
 
 export default function RoomPage() {
   return <RoomClient />;
