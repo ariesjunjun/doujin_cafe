@@ -4,6 +4,7 @@ type Props = {
   params: { threadId: string };
 };
 
+// asyncにするだけでOK
 export default async function ThreadPage({ params }: Props) {
   return <ClientThreadContent threadId={params.threadId} />;
 }
