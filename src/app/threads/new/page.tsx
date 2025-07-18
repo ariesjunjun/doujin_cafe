@@ -1,5 +1,4 @@
 // threads/new/page.tsx
-"use client";
 
 import NewThreadClient from "./NewThreadClient";
 

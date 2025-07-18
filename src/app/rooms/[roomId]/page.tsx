@@ -1,5 +1,5 @@
 // app/rooms/[roomId]/page.tsx
-"use client";
+
 
 import RoomClient from "./RoomClient";
 

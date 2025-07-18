@@ -1,5 +1,5 @@
 // app/search/page.tsx
-"use client";
+
 
 import SearchClient from "./SearchClient";
 

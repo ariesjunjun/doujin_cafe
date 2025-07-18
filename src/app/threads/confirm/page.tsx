@@ -1,5 +1,4 @@
 // threads/confirm/page.tsx
-"use client";
 
 import ThreadConfirmClient from "./ThreadConfirmClient";
 

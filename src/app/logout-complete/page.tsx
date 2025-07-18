@@ -1,4 +1,4 @@
-"use client";
+
 
 import LogoutCompleteClient from "./LogoutCompleteClient";
 

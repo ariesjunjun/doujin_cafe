@@ -1,5 +1,4 @@
 // app/update-password/page.tsx
-"use client";
 
 import UpdatePasswordClient from "./UpdatePasswordClient";
 

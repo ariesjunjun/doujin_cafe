@@ -1,5 +1,5 @@
 // app/register/page.tsx
-"use client";
+
 
 import RegisterClient from "./RegisterClient";
 

@@ -1,5 +1,5 @@
 // app/reset-password/page.tsx
-"use client";
+
 
 import ResetPasswordClient from "./ResetPasswordClient";
 
