@@ -1,11 +1,14 @@
 import ClientThreadContent from "@/components/ClientThreadContent";
 
-type Props = {
+interface ThreadPageProps {
   params: {
     threadId: string;
   };
-};
+}
 
-export default async function ThreadPage({ params }: Props) {
+// async関数にしてPromiseを返す形にする
+export default async function ThreadPage({ params }: ThreadPageProps) {
+  // もしサーバーでデータ取得があればここでawaitで実行
+
   return <ClientThreadContent threadId={params.threadId} />;
 }
