@@ -3,7 +3,9 @@ import ClientThreadContent from "@/components/ClientThreadContent";
 export default async function ThreadPage({
   params,
 }: {
-  params: { threadId: string };
+  params: Promise<{ threadId: string }>;
 }) {
-  return <ClientThreadContent threadId={params.threadId} />;
+  const { threadId } = await params;
+
+  return <ClientThreadContent threadId={threadId} />;
 }
