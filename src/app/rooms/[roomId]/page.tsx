@@ -1,13 +1,8 @@
-"use client";
+import dynamic from "next/dynamic";
 
-import { useParams } from "next/navigation";
+// クライアントコンポーネントを動的import（SSR無効化）
+const RoomClient = dynamic(() => import("./RoomClient"), { ssr: false });
 
 export default function RoomPage() {
-  const params = useParams();
-  return (
-    <div>
-      <h1>Room Page</h1>
-      <p>Room ID: {params.roomId}</p>
-    </div>
-  );
+  return <RoomClient />;
 }
