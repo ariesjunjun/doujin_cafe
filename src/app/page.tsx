@@ -1,8 +1,11 @@
 // app/page.tsx
+import { Suspense } from "react";
 import ClientHomePage from "./ClientHomePage";
 
 export default function Page() {
-  // 必要に応じてサーバー側処理（fetchなど）を書く場所
-
-  return <ClientHomePage />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ClientHomePage />
+    </Suspense>
+  );
 }

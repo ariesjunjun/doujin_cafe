@@ -1,8 +1,10 @@
-// app/rooms/[roomId]/page.tsx
-
-
+import React, { Suspense } from "react";
 import RoomClient from "./RoomClient";
 
 export default function RoomPage() {
-  return <RoomClient />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <RoomClient />
+    </Suspense>
+  );
 }
