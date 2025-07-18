@@ -1,9 +1,12 @@
-// app/threads/[threadId]/ThreadPage.tsx
 "use client";
 
 import { useEffect } from "react";
 
-export default function ThreadPage({ threadId }) {
+type ThreadPageProps = {
+  threadId: string;
+};
+
+export default function ThreadPage({ threadId }: ThreadPageProps) {
   useEffect(() => {
     console.log("Load comments only once for threadId", threadId);
     // fetch comments etc.
