@@ -1,12 +1,6 @@
-// app/comments/confirm/page.tsx
+"use client";
 
-import dynamic from "next/dynamic";
-
-// クライアントコンポーネントを動的import（サーバー側でレンダリングしない）
-const CommentConfirmClient = dynamic(
-  () => import("./CommentConfirmClient"),
-  { ssr: false }
-);
+import CommentConfirmClient from "./CommentConfirmClient";
 
 export default function CommentConfirmPage() {
   return <CommentConfirmClient />;

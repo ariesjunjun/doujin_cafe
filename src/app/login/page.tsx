@@ -1,7 +1,6 @@
-import dynamic from "next/dynamic";
+"use client";
 
-// クライアント専用コンポーネントを動的に読み込む（SSRしない）
-const LoginClient = dynamic(() => import("./LoginClient"), { ssr: false });
+import LoginClient from "./LoginClient";
 
 export default function LoginPage() {
   return <LoginClient />;

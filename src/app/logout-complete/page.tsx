@@ -1,10 +1,6 @@
-// app/logout-complete/page.tsx
-import dynamic from "next/dynamic";
+"use client";
 
-const LogoutCompleteClient = dynamic(
-  () => import("./LogoutCompleteClient"),
-  { ssr: false }
-);
+import LogoutCompleteClient from "./LogoutCompleteClient";
 
 export default function LogoutCompletePage() {
   return <LogoutCompleteClient />;

@@ -1,10 +1,6 @@
-// app/comments/success/page.tsx
-import dynamic from "next/dynamic";
+"use client";
 
-// クライアントコンポーネントを動的import（SSR無効化）
-const CommentSuccessClient = dynamic(() => import("./CommentSuccessClient"), {
-  ssr: false,
-});
+import CommentSuccessClient from "./CommentSuccessClient";
 
 export default function CommentSuccessPage() {
   return <CommentSuccessClient />;

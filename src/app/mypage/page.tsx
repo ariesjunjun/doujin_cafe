@@ -1,7 +1,6 @@
-// app/mypage/page.tsx
-import dynamic from "next/dynamic";
+"use client";
 
-const MyPageClient = dynamic(() => import("./MyPageClient"), { ssr: false });
+import MyPageClient from "./MyPageClient";
 
 export default function MyPage() {
   return <MyPageClient />;
