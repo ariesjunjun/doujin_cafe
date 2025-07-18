@@ -7,9 +7,9 @@ module.exports = {
         primary: '#dd6382',   // メイン
         accent: '#ececec',    // アクセントグレー
         secondary: '#fffae5', // イエロー
-        text: '#4b5563',      // 
-        text2: '#a5a6a7ff',      // 
-        room: '#ffe3ecff',      // 
+        text: '#4b5563',      //
+        text2: '#a5a6a7ff',      //
+        room: '#ffe3ecff',      //
       },
     },
   },
