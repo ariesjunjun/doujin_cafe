@@ -17,7 +17,7 @@ export function RoomCard({
         relative                 /* 子要素の位置調整用に相対配置 */
         rounded-xl              /* 角丸（Extra Large） */
         p-4                     /* 内側の余白: 1rem (16px) */
-        bg-room                 /* カスタムの背景色 (Tailwind の設定で定義されている前提) */
+        bg-secondary                 /* カスタムの背景色 (Tailwind の設定で定義されている前提) */
         shadow                  /* 通常のシャドウ */
         hover:shadow-md         /* ホバー時に中程度のシャドウに変化 */
         transition              /* 状態変化（ホバーなど）に滑らかさを追加 */
@@ -28,7 +28,7 @@ export function RoomCard({
       {/* 上部: タイトルや情報 */}
       <div>
         <div className="flex justify-between items-center mb-1">
-          {/* 
+          {/*
             flex: 横並びにする
             justify-between: 両端に配置（タイトルとロックアイコン）
             items-center: 垂直方向の中央揃え
@@ -40,7 +40,7 @@ export function RoomCard({
           </h3>
           {isLocked && (
             <span className="text-sm text-red-500 font-medium">
-              {/* 
+              {/*
                 text-sm: 小さめ文字
                 text-red-500: 赤系の中間色
                 font-medium: 少し太め
@@ -57,7 +57,7 @@ export function RoomCard({
 
       {/* 下部: ルームに参加ボタン */}
       <div className="flex justify-end mt-1">
-        {/* 
+        {/*
           flex: 横並び（今回はボタン1つだけど整列に便利）
           justify-end: 右寄せ
           mt-2: 上マージン（8px）→余白を控えめに

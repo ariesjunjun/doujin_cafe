@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#dd6382',   // メイン
+        primary: '#346826',   // メイン
         accent: '#ececec',    // アクセントグレー
         secondary: '#fffae5', // イエロー
         text: '#4b5563',      //

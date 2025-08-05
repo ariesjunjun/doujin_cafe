@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 
+
 export default function ThreadConfirmClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -13,6 +14,7 @@ export default function ThreadConfirmClient() {
   const authorName = searchParams.get("authorName") || "名無しの創作者さん";
   const anonymous = searchParams.get("anonymous") === "1";
   const tags = searchParams.get("tags")?.split(",") || [];
+  const imageUrl = searchParams.get("imageUrl") || "";
 
   const [userId, setUserId] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -28,6 +30,8 @@ export default function ThreadConfirmClient() {
   const handleConfirm = async () => {
     setSubmitting(true);
 
+
+
     const { error } = await supabase.from("threads").insert([
       {
         title,
@@ -35,6 +39,7 @@ export default function ThreadConfirmClient() {
         author_name: authorName,
         author_id: userId,
         tags,
+        image_url: imageUrl,
       },
     ]);
 
@@ -71,6 +76,18 @@ export default function ThreadConfirmClient() {
         <label className="font-semibold">本文：</label>
         <p className="whitespace-pre-wrap bg-gray-100 p-3 rounded mt-1">{body}</p>
       </div>
+
+      {imageUrl && (
+  <div className="mb-6">
+    <label className="font-semibold">画像プレビュー：</label>
+    <img
+      src={imageUrl}
+      alt="投稿画像"
+      className="max-w-40 w-full rounded mt-1"
+      style={{ objectFit: "contain" }}
+    />
+  </div>
+)}
 
       <div className="flex gap-4">
         <button

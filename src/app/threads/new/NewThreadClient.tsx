@@ -77,12 +77,45 @@ export default function NewThreadClient() {
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title.trim()) return;
 
+    setLoading(true);
+
     const postAuthorName =
       anonymous || !authorName.trim() ? "名無しの創作者さん" : authorName.trim();
+
+    let imageUrl = "";
+
+
+    // 画像を Supabase ストレージにアップロード
+    if (imageFile) {
+      const fileExt = imageFile.name.split('.').pop();
+      const fileName = `${Date.now()}.${fileExt}`;
+      const filePath = fileName;  // フォルダ名は付けない
+
+      const { error: uploadError } = await supabase.storage
+        .from("thread-images")
+        .upload(filePath, imageFile);
+
+      if (uploadError) {
+        console.error("画像アップロード失敗:", uploadError.message);
+        alert("画像のアップロードに失敗しました。");
+        setLoading(false);
+        return;
+      }
+
+      // 公開URLを取得
+      const { data: publicUrlData } = supabase.storage
+        .from("thread-images")
+        .getPublicUrl(filePath);
+
+      imageUrl = publicUrlData?.publicUrl || "";
+
+      console.log("画像URL:", imageUrl);  // ←ここに入れる
+    }
+
 
     const query = new URLSearchParams({
       title,
@@ -92,11 +125,16 @@ export default function NewThreadClient() {
       tags: selectedTags.join(","),
     });
 
+    if (imageUrl) query.set("imageUrl", imageUrl);
+
     router.push(`/threads/confirm?${query.toString()}`);
   };
 
+
+
   return (
     <div className="w-full max-w-3xl mx-auto px-4 py-8 bg-white">
+
       <h1 className="text-3xl font-bold text-primary mb-6 text-center">
         新規スレッド作成
       </h1>
@@ -196,6 +234,8 @@ export default function NewThreadClient() {
           {loading ? "投稿中..." : "投稿する"}
         </button>
       </form>
+
     </div>
+
   );
 }
